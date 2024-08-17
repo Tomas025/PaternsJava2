@@ -1,41 +1,25 @@
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         PPay pPay = new PPayImpl();
-        pPay.setCustCardNo("233444");
-        pPay.setCardOwnerName("Jane Doe");
-        pPay.setCardExpMonthDate("12/2022");
+        pPay.setCustCardNo("9999999999999999");
+        pPay.setCardOwnerName("Tomas Braz");
+        pPay.setCardExpMonthDate("5/2025");
         pPay.setCVVNo(123);
-        pPay.setTotalAmount(100.0);
+        pPay.setTotalAmount(1200.0);
+        System.out.println("PPay:");
+        testPPay(pPay);
 
         MPay mPay = new MpayImpl();
-        mPay.setCreditCardNo("1234567890123456");
-        mPay.setCustomerName("John Doe");
-        mPay.setCardExpMonth("12");
-        mPay.setCardExpYear("2022");
+        mPay.setCreditCardNo("9999999999999999");
+        mPay.setCustomerName("Tomas Braz");
+        mPay.setCardExpMonth("5");
+        mPay.setCardExpYear("2025");
         mPay.setCardCVVNo((short) 123);
-        mPay.setAmount(100.0);
-
-        System.out.println("=================================");
-        System.out.println("Mercado Pago Details:");
-        System.out.println("=================================");
-        System.out.println(mPay.getCreditCardNo());
-        System.out.println(mPay.getCustomerName());
-        System.out.println(mPay.getCardExpMonth());
-        System.out.println(mPay.getCardExpYear());
-        System.out.println(mPay.getCardCVVNo());
-        System.out.println(mPay.getAmount());
-        
+        mPay.setAmount(1200.0);
+        System.out.println("MPay:");
         
         PPay pPayAdapter = new MPayAdapter(mPay);
 
-        System.out.println("=================================");
-        System.out.println("PayPal Details:");
-        System.out.println("=================================");
-        testPPay(pPay);
-        
-        System.out.println("=================================");
-        System.out.println("PayPalAdapter Details:");
-        System.out.println("=================================");
         testPPay(pPayAdapter);
     }
 
