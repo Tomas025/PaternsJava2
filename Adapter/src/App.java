@@ -29,5 +29,6 @@ public class App {
         System.out.println(pp.getCardExpMonthDate());
         System.out.println(pp.getCVVNo());
         System.out.println(pp.getTotalAmount());
+        System.out.println("teste");
     }
 }
